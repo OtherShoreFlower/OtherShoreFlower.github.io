@@ -249,7 +249,7 @@
               
                 
                 <a class="post-title-link" href="/2016/10/24/archlinux包管理/" itemprop="url">
-                  未命名
+                  archlinux包管理
                 </a>
               
             
@@ -262,7 +262,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-24T21:03:41+08:00" content="2016-10-24">
+            <time itemprop="dateCreated" datetime="2016-10-24T21:59:46+08:00" content="2016-10-24">
               2016-10-24
             </time>
           </span>
@@ -284,7 +284,7 @@
 
           
           
-             <span id="/2016/10/24/archlinux包管理/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2016/10/24/archlinux包管理/" class="leancloud_visitors" data-flag-title="archlinux包管理">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -307,178 +307,9 @@
 
       
         
-          
-            <h1 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h1><h2 id="pacman包的管理"><a href="#pacman包的管理" class="headerlink" title="pacman包的管理"></a>pacman包的管理</h2><h3 id="增"><a href="#增" class="headerlink" title="增"></a>增</h3><blockquote>
-<p>pacman -S package_name    安装包</p>
-<p>pacman -Sw package_name    重新安装软件包</p>
-<p>pacman -Sw package_name    只下载指定包但不安装</p>
-<p>pacman -U /path/to/package/package_name-version.pkg.tar.gz    安装一个本地包（不从源里）</p>
-<p>pacman -U <a href="http://url/package_name-version.pkg.tar.gz" target="_blank" rel="external">http://url/package_name-version.pkg.tar.gz</a>        安装一个远程包（不从源里）</p>
-<p>pacman -Sc     清理当前未被安装软件包的缓存</p>
-<p>pacman -Scc     完全清除包缓存</p>
-<p>pacman -S ＄(pacman -Qq | grep -v “​＄(pacman -Qmq)”)      重新安装你系统中所有的软件包（仓库中已有的）</p>
-<p>有时候在不同的软件仓库中，一个软件包有多个版本（比如extra和testing）。你可以选择一个来安装：</p>
-<blockquote>
-<p>pacman -S extra/package_name<br>pacman -S testing/package_name</p>
-</blockquote>
-</blockquote>
-<h3 id="删"><a href="#删" class="headerlink" title="删"></a>删</h3><blockquote>
-<p>pacman -R package_name    删除指定包</p>
-<p>pacman -Rs package_name    删除指定包的同时卸载相关依赖</p>
-<p>pacman -Rsc package_name    删除指定包和所有依赖这个软件包的程序。注意: 此操作是递归的，请小心检查，可能会一次删除大量的软件包。</p>
-<p>pacman -Rdd package_name    删除指定包，但是不删除依赖这个包的其他程序。</p>
-<p>pacman -Rs $(pacman -Qtdq)        删除孤立软件包。注意：这是递归的。</p>
-<p>pacman -Rn package_name        删除软件包时同时删除相应的配置文件（这种行为在基于Debian的系统中称为清除purging）</p>
-<p>pacman -Rsn package_name        删除一个软件包、它的配置文件以及所有不再需要的依赖。注意：Pacman不会删除软件包安装后才创建的配置文件。你可以从你的home文件夹中手动删除它们。</p>
-</blockquote>
-<h3 id="查"><a href="#查" class="headerlink" title="查"></a>查</h3><blockquote>
-<p>pacman -Ss package_name    查询指定包</p>
-<p>pacman -Qs package_name    查询已安装的指定包</p>
-<p>pacman -Ql package_name    获取所含指定包文件的列表</p>
-<p>pacman -Qi package_name    获取指定包的详细信息</p>
-<p>pacman -Si package_name    获取指定包的详细信息</p>
-<p>pacman -Qdt        罗列出所有不再作为依赖的软件包（孤立orphans）</p>
-<p>LANG=C pacman -Qi | sed -n ‘/^Name[^:]<em>: (.</em>)/{s//\1 /;x};/^Installed[^:]<em>: (.</em>)/{s//\1/;H;x;s/\n//;p}’ | sort -nk2        获取本地软件包和它们大小的一个已排序清单列表</p>
-</blockquote>
-<h3 id="改"><a href="#改" class="headerlink" title="改"></a>改</h3><blockquote>
-<p>pacman -Su     升级系统</p>
-<p>pacman -Syu   升级系统的同时同步仓库数据</p>
-<p>yaourt -Syu -aur    升级系统，附带升级从aur安装的软件包。注：这条命令的确切意思是升级系统，从AUR升级本地软件数据库并安装更新。</p>
-</blockquote>
-<h2 id="yaourt包管理"><a href="#yaourt包管理" class="headerlink" title="yaourt包管理"></a>yaourt包管理</h2><blockquote>
-<p>yaourt -Cd    清除AUR软件包数据库</p>
-<p>yaourt -Sc    从缓存中清除旧的软件包</p>
-<p>yaourt -Su    安装从AUR中的更新软件包</p>
-<p>yaourt -Sy    获取最新的AUR软件包数据库</p>
-<p>yaourt -R package_name        卸载软件包</p>
-<p>yaourt -Rs package_name    删除指定包的同时卸载相关依赖</p>
-<p>yaourt -Si package_name    列出软件包信息</p>
-<p>yaourt package_name    会列出所有和指定包所匹配的包，用户可选择安装</p>
-</blockquote>
-<p>Pacman的配置文件位于<code>/etc/pacman.conf</code>。关于配置文件的进一步信息可以用<code>man pacman.conf</code>查看。</p>
-<h3 id="常用选项"><a href="#常用选项" class="headerlink" title="常用选项"></a>常用选项</h3><p>常用选项都在[options]段。阅读man手册或者查看缺省的pacman.conf可以获得有关信息和用途。</p>
-<h4 id="跳过升级软件包"><a href="#跳过升级软件包" class="headerlink" title="跳过升级软件包"></a>跳过升级软件包</h4><p>如果由于某种原因，你不希望升级某个软件包，可以加入内容如下：</p>
-<blockquote>
-<p>IgnorePkg = 软件包名</p>
-</blockquote>
-<h4 id="跳过升级软件包组"><a href="#跳过升级软件包组" class="headerlink" title="跳过升级软件包组"></a>跳过升级软件包组</h4><p>和软件包一样，你也可以象这样跳过升级某个软件包组：</p>
-<blockquote>
-<p>IgnoreGroup = <a href="http://www.ha97.com/tag/gnome" target="_blank" rel="external">gnome</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/10/21/我不明白 (2)/" itemprop="url">
-                  未命名
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-10-21T19:08:09+08:00" content="2016-10-21">
-              2016-10-21
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/10/21/我不明白 (2)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/21/我不明白 (2)/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/10/21/我不明白 (2)/" class="leancloud_visitors" data-flag-title="">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">阅读次数 </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="我不明白"><a href="#我不明白" class="headerlink" title="我不明白"></a>我不明白</h2><blockquote>
-<p>​    我不明白 …..是不是 真的  越长大越冷漠 活得越久越功利</p>
-</blockquote>
-<p>​    我家有一条狗…..至于是啥品种 我也没细究   大概 就是传说中的田园犬吧……</p>
+          <h1 id="包管理"><a href="#包管理" class="headerlink" title="包管理"></a>包管理</h1><h2 id="pacman包的管理"><a href="#pacman包的管理" class="headerlink" title="pacman包的管理"></a>pacman包的管理</h2>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/21/我不明白 (2)/#more" rel="contents">
+            <a class="btn" href="/2016/10/24/archlinux包管理/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -529,8 +360,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/09/26/Hello World/" itemprop="url">
-                  未命名
+                <a class="post-title-link" href="/2016/10/24/Hello World/" itemprop="url">
+                  Hello World
                 </a>
               
             
@@ -543,8 +374,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T22:07:26+08:00" content="2016-09-26">
-              2016-09-26
+            <time itemprop="dateCreated" datetime="2016-10-24T21:59:46+08:00" content="2016-10-24">
+              2016-10-24
             </time>
           </span>
 
@@ -554,8 +385,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/Hello World/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/Hello World/" itemprop="commentsCount"></span>
+                <a href="/2016/10/24/Hello World/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/24/Hello World/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -565,7 +396,7 @@
 
           
           
-             <span id="/2016/09/26/Hello World/" class="leancloud_visitors" data-flag-title="">
+             <span id="/2016/10/24/Hello World/" class="leancloud_visitors" data-flag-title="Hello World">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -588,14 +419,11 @@
 
       
         
-          <blockquote>
-<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1></blockquote>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+          <h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>第一次用markdown标记语言，有点儿不知所措。。。。。经常和我聊天的应该都知道 我平时在打字的时候喜欢 输一些 符号  比如说  在手机上 聊天时喜欢 动不动就打句号 ；在电脑上的时候  一言不发就打空格，当然 句号理所当然地也位列其中，希望看我博客的朋友 多多包涵 </p>
 </blockquote>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/26/Hello World/#more" rel="contents">
+            <a class="btn" href="/2016/10/24/Hello World/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -666,7 +494,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
