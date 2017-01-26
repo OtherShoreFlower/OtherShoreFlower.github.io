@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="vim," />
+  <meta name="keywords" content="emacs,缓冲区," />
 
 
 
@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="vi和vim是我们在Linux中最常用的编辑器。我们有必要介绍一下vi（vim）最简单的用法，以让Linux入门级用户在最短的时间内学会使用它">
+<meta name="description" content="缓冲区切换C-x b：选择缓冲区。命令输入后再输入缓冲区名称，可以用tab补全。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vim 简单操作">
-<meta property="og:url" content="http://yoursite.com/2016/11/13/vim-简单操作/index.html">
+<meta property="og:title" content="emacs 缓冲区切换">
+<meta property="og:url" content="http://yoursite.com/2016/11/13/emacs-缓冲区切换/index.html">
 <meta property="og:site_name" content="Forever Love">
-<meta property="og:description" content="vi和vim是我们在Linux中最常用的编辑器。我们有必要介绍一下vi（vim）最简单的用法，以让Linux入门级用户在最短的时间内学会使用它">
-<meta property="og:updated_time" content="2016-11-13T12:13:30.973Z">
+<meta property="og:description" content="缓冲区切换C-x b：选择缓冲区。命令输入后再输入缓冲区名称，可以用tab补全。">
+<meta property="og:updated_time" content="2017-01-26T15:32:30.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vim 简单操作">
-<meta name="twitter:description" content="vi和vim是我们在Linux中最常用的编辑器。我们有必要介绍一下vi（vim）最简单的用法，以让Linux入门级用户在最短的时间内学会使用它">
+<meta name="twitter:title" content="emacs 缓冲区切换">
+<meta name="twitter:description" content="缓冲区切换C-x b：选择缓冲区。命令输入后再输入缓冲区名称，可以用tab补全。">
 
 
 
@@ -114,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/13/vim-简单操作/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/13/emacs-缓冲区切换/"/>
 
-  <title> vim 简单操作 | Forever Love </title>
+  <title> emacs 缓冲区切换 | Forever Love </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -256,7 +256,7 @@
             
             
               
-                vim 简单操作
+                emacs 缓冲区切换
               
             
           </h1>
@@ -268,19 +268,38 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-13T19:57:08+08:00" content="2016-11-13">
+            <time itemprop="dateCreated" datetime="2016-11-13T20:27:18+08:00" content="2016-11-13">
               2016-11-13
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/11/13/vim-简单操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/vim-简单操作/" itemprop="commentsCount"></span>
+                <a href="/2016/11/13/emacs-缓冲区切换/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/emacs-缓冲区切换/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -290,7 +309,7 @@
 
           
           
-             <span id="/2016/11/13/vim-简单操作/" class="leancloud_visitors" data-flag-title="vim 简单操作">
+             <span id="/2016/11/13/emacs-缓冲区切换/" class="leancloud_visitors" data-flag-title="emacs 缓冲区切换">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -312,19 +331,24 @@
       
 
       
-        <p>vi和vim是我们在Linux中最常用的编辑器。我们有必要介绍一下vi（vim）最简单的用法，以让Linux入门级用户在最短的时间内学会使用它</p>
-<a id="more"></a>
-<h2 id="基本移动"><a href="#基本移动" class="headerlink" title="基本移动"></a>基本移动</h2><p>当我们按ESC进入Command模式后，我们可以用下面的一些键位来移动光标；</p>
-<blockquote>
-<p>j 向下移动一行；<br>k 向上移动一行；<br>h 向左移动一个字符；<br>l 向右移动一个字符；<br>ctrlb  向上移动一屏；<br>ctrlf  向下移动一屏；<br>向上箭头    向上移动；<br>向下箭头    向下移动；<br>向左箭头    向左移动；<br>向右箭头    向右移动；<br>我们编辑一个文件时，对于 j、k、l和h键，还能在这些动作命令的前面加上数字，比如 3j，表示向下移动3行。</p>
-</blockquote>
-<h2 id="查找和替换功能"><a href="#查找和替换功能" class="headerlink" title="查找和替换功能"></a>查找和替换功能</h2><p>首先，我们要摁ESC键，进入命令模式；<br>我们输入/或?就进入查找模式了；  </p>
-<blockquote>
-<p>/SEARCH  注：正向查找，按n键把光标移动到下一个符合条件的地方； </p>
-<p>?SEARCH  注：反向查找，按shiftn 键，把光标移动到下一个符合条件的  </p>
-</blockquote>
-<p>举一例：比如我想在一个文件中找到ab单词，我应该如下做:首先按ESC键，进入命令模式，然后输入/ab  或 ?ab</p>
+        <h1 id="缓冲区切换"><a href="#缓冲区切换" class="headerlink" title="缓冲区切换"></a>缓冲区切换</h1><pre><code>C-x b：选择缓冲区。命令输入后再输入缓冲区名称，可以用tab补全。
+</code></pre><a id="more"></a>
+<h1 id="窗口切换"><a href="#窗口切换" class="headerlink" title="窗口切换"></a>窗口切换</h1><pre><code>C-x 0：关闭当前窗口
 
+C-x 1：关闭当前窗口以为的其他窗口
+
+C-x 2：水平分割窗口
+
+C-x 3：垂直分割窗口
+
+C-x 4 0：关闭当前窗口和缓冲
+
+C-x 4 b：在另一窗口打开缓冲（如果当前只有一个窗口将分割一个新窗口）
+
+C-x 4 f：在另一窗口打开文件（…同上）
+
+C-x o：在多个窗口中循环切换
+</code></pre>
       
     </div>
 
@@ -346,7 +370,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/vim/" rel="tag">#vim</a>
+            <a href="/tags/emacs/" rel="tag">#emacs</a>
+          
+            <a href="/tags/缓冲区/" rel="tag">#缓冲区</a>
           
         </div>
       
@@ -355,17 +381,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/13/archlinux-无线设置/" rel="next" title="archlinux 无线设置">
-                <i class="fa fa-chevron-left"></i> archlinux 无线设置
+              <a href="/2016/11/13/给普通用户添加-sudo/" rel="next" title="给普通用户添加 sudo">
+                <i class="fa fa-chevron-left"></i> 给普通用户添加 sudo
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/13/给普通用户添加-sudo/" rel="prev" title="给普通用户添加 sudo">
-                给普通用户添加 sudo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -391,8 +413,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/13/vim-简单操作/"
-           data-title="vim 简单操作" data-url="http://yoursite.com/2016/11/13/vim-简单操作/">
+      <div class="ds-thread" data-thread-key="2016/11/13/emacs-缓冲区切换/"
+           data-title="emacs 缓冲区切换" data-url="http://yoursite.com/2016/11/13/emacs-缓冲区切换/">
       </div>
     
   </div>
@@ -521,7 +543,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本移动"><span class="nav-number">1.</span> <span class="nav-text">基本移动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找和替换功能"><span class="nav-number">2.</span> <span class="nav-text">查找和替换功能</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缓冲区切换"><span class="nav-number">1.</span> <span class="nav-text">缓冲区切换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#窗口切换"><span class="nav-number">2.</span> <span class="nav-text">窗口切换</span></a></li></ol></div>
             
           </div>
         </section>
